@@ -39,7 +39,7 @@ input, button {
 .cont {
   position: relative;
   height: 100%;
-  background-color: #02345a;
+  /* background-color: rgb(2, 52, 90); */
   background-size: cover;
   overflow: auto;
   font-family: 'Rounded Mplus 1c', sans-serif;
@@ -55,7 +55,7 @@ input, button {
 .login {
   position: relative;
   height: 100%;
-  /* background: linear-gradient(to bottom, rgb(106, 177, 236) 0%, rgb(22, 51, 67) 100%); */
+  background: linear-gradient(to bottom, rgb(51, 136, 206) 25%, rgb(2, 52, 90) 70%);
   transition: opacity 0.1s, -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
   transition: opacity 0.1s, transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25), -webkit-transform 0.3s cubic-bezier(0.17, -0.65, 0.665, 1.25);
@@ -85,7 +85,7 @@ input, button {
 .login__icon {
   margin-bottom: -0.4rem;
   margin-right: 0.5rem;
-  margin-left: 2rem;
+  margin-left: 1.2rem;
 }
 .login__icon.name path {
   stroke-dasharray: 73.50196075439453;
@@ -101,7 +101,7 @@ input, button {
 }
 .login__input {
   display: inline-block;
-  /* width: 24rem; */
+  width: 75%;
   height: 100%;
   padding-left: 1.5rem;
   font-size: 1.5rem;
@@ -112,17 +112,17 @@ input, button {
 .login__submit {
   position: relative;
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   margin: 5rem 0 2.2rem;
-  color: #FDFCFD;
+  color: rgba(255, 255, 255, 0.8);
   background: #02345a;
   font-size: 2.2rem;
   border-radius: 3rem;
-  border: 0.3rem solid #FDFCFD;
+  border: 0.2rem solid rgba(255, 255, 255, 0.4);
   cursor: pointer;
   overflow: hidden;
   transition: width 0.3s 0.15s, font-size 0.1s 0.15s;
-  font-family: 'Rounded Mplus 1c', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 .login__submit:after {
   content: "";
@@ -141,7 +141,7 @@ input, button {
   opacity: 0;
 }
 .login__submit.processing {
-  width: 5rem;
+  width: 4rem;
   font-size: 0;
 }
 .login__submit.processing:after {

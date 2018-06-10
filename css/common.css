@@ -1,0 +1,28 @@
+@media only screen and (min-width: 485px) {
+    #schedule {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #schedule {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #schedule {
+        font-size: 0.7em;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    font-size: 1.6em;
+}
+
+* {
+    font-family: "Rounded Mplus 1c";
+    box-sizing: border-box;
+}

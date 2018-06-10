@@ -1,238 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+  
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
-<script src="js/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="js/anypicker.js"></script>
-<link rel="stylesheet" type="text/css" href="css/anypicker.css" />
-<style>
-
-@media only screen and (min-width: 485px) {
-#schedule {
-    font-size: 1.2em;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-#schedule {
-    font-size: 0.8em;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-#schedule {
-    font-size: 0.7em;
-  }
-} 
-
-
-
-body {
-  margin: 0;
-  background-color: white;
-  font-size: 1.6em;
-}
-* {
-  box-sizing: border-box;
-}
-#schedule {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
   
-}
-
-#schedule > * {
-  width: 100%;
-  max-width: 768px;
-}
-
-
-#title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2em;
-}
-
-#navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  display:block;
-  -webkit-transition: top 0.5s;
-  transition: top 0.5s;
-  border-bottom: 1px solid #b2b2b2;
-  background-color: white;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  -webkit-box-shadow:0 0 15px #b2b2b2;
-  box-shadow:0 0 15px #b2b2b2;
-}
-
-
-#navbar a {
-  float: left;
-  display: block;
-  height: 2em;
-  width: 25%;
-  color: #b2b2b2;
-  text-align: center;
-  text-decoration: none;
-  font-weight: 600;
-  display: flex;
-  justify-content: center;
-  padding-top: 0.5em;
-}
-
-#list {
-  list-style-type: none;
-  
-}
-
-#list > li {
-  height: 3em;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #b2b2b2;
-  
-  padding: 0 1em;
-}
-
-#list > li:active {
-  background-color: #0084b413;
-}
-
-/* #list > li:first-of-type {
-  justify-content: center;
-} */
-
-a.selected {
-  border-bottom: 3px solid #0084b4;
-}
-
-a.selected ion-icon {
-  color: #0084b4;
-}
-
-.date {
-  font-size: 1em;
-  width: 10%;
-}
-.day {
-  font-size: 0.6em;
-  width: 5%;
-}
-.time {
-  font-size: 0.8em;
-  padding-left: 1em;
-  width: 70%;
-}
-ion-icon {
-  font-size: 1em;
-}
-
-#datePicker {
-  margin-top: 5em;
-  padding: 1em 0;
-  outline: none;
-  border: none;
-  text-align: center;
-  height: 100%;
-  font-size: 0.8em;
-  font-weight: 600;
-  -webkit-transition: margin-top 0.5s;
-  transition: margin-top 0.5s;
-  border-bottom: 1px solid #b2b2b2;
-}
-
-</style>
+  <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/anypicker.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/schedule.css">
 </head>
+
 <body>
-<div id="schedule">
-  <div id="navbar">
-    <div id="title">Home</div>
-    <a href="#" class="selected"><ion-icon name="calendar"></ion-icon></a>
-    <a href="#"><ion-icon name="subway"></ion-icon></a>
-    <a href="#"><ion-icon name="pie"></ion-icon></a>
-    <a href="#"><ion-icon name="apps"></ion-icon></a>
+  <div id="schedule">
+    <div id="navbar">
+      <div id="title">勤務表</div>
+      <a href="#" class="selected">
+        <ion-icon name="stopwatch"></ion-icon>
+      </a>
+      <a href="#">
+        <ion-icon name="subway"></ion-icon>
+      </a>
+      <a href="#">
+        <ion-icon name="pie"></ion-icon>
+      </a>
+      <a href="#">
+        <ion-icon name="mail"></ion-icon>
+      </a>
+    </div>
+    <input type="text" id="datePicker" readonly>
+    <div id="list">
+    </div>
   </div>
-  <input type="text" id="datePicker" readonly>
-  <div id="list">
-  </div>
-</div>
 
 
 
 
-
-<script>
-  var prevScrollpos = window.pageYOffset;
-  window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
-    if (prevScrollpos > currentScrollPos) {
-      $("#navbar").css("top", "0em");
-      $("#datePicker").css("margin-top", "5em");
-    } else {
-      $("#navbar").css("top", "-2em");
-      $("#datePicker").css("margin-top", "2em");
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = () => {
+      if (prevScrollpos > window.pageYOffset) {
+        $("#navbar").css("top", "0em");
+      } else {
+        $("#navbar").css("top", "-2em");
+      }
+      prevScrollpos = window.pageYOffset; 
     }
-    prevScrollpos = currentScrollPos;
-  }
-
-  $("a").click(function() {
-    $(this).siblings().removeClass("selected");
-    $(this).addClass("selected");
-  });
-  
-  var getWeekday = (year, month, date) => {
-    var weekday = ["日","月","火","水","木","金","土"]
-    return weekday[new Date(year, month, date).getDay()];
-  }
-
-  var getSchedule = (year, month) => {
-    var days = new Date(year, month, 0).getDate();
-      
-
-    for(var i = 1; i < days; i++){
-      var weekday = getWeekday(year, month, i);
-      $("#list").append(`
-        <li>
-          <div class="date">${i}</div><div class="day">${weekday}</div><div class="time">09:00 ~ 18:00</div>
-        </li>
-      `);
-    }
-  }
-
-  $("#title").click(() =>{
-    var selectedDate = $("#datePicker").val();
-    $.when($("#list").empty()).then(() => {
-      selectedDate = selectedDate.split(" / ");
-      getSchedule(selectedDate[0], selectedDate[1]);
-    });
-  });
-  
-  
-  $(document).ready(() => {
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = today.getMonth();
-    $("#datePicker").val(`${year} / ${month}`);
-    getSchedule(year, month);
-    
-    $("#datePicker").AnyPicker({
-      mode: "datetime",
-      dateTimeFormat: "yyyy / M",
-      maxValue: "2030 / 12",
-      minValue: "2000 / 1"
-    });
-
-    
-
-  });
-</script>
-
+  </script>
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="js/anypicker.js"></script>
+  <script src="js/schedule.js"></script>
 </body>
+
 </html>

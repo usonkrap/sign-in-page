@@ -25,12 +25,12 @@
     -webkit-transition: top 0.5s;
     transition: top 0.5s;
     border-bottom: 1px solid #b2b2b2;
-    background-color: white;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     -webkit-box-shadow: 0 0 15px #b2b2b2;
     box-shadow: 0 0 15px #b2b2b2;
+    background-color: white;
 }
 
 #navbar a {
@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
     border-bottom: 1px solid #b2b2b2;
-    padding: 0 1em;
+    padding: 0 0.5em;
 }
 
 #list>li:active {
@@ -72,19 +72,36 @@ a.selected ion-icon {
 
 .date {
     font-size: 1em;
-    width: 10%;
+    width: 15%;
+    text-align: center;
+    color: #01355B;
 }
 
 .day {
     font-size: 0.6em;
     font-weight: 600;
     width: 10%;
+}
 
+.sat {
+    color: #4c8bf5;
+}
+
+.sun {
+    color: #dd5144;
 }
 
 .time {
     font-size: 0.8em;
-    padding-left: 2em;
+    padding-left: 1em;
+    width: 65%;
+}
+
+.checkbox {
+    /* font-size: 1.2em; */
+    cursor: pointer;
+    color: #b2b2b2;
+    display: flex;
 }
 
 ion-icon {
@@ -93,31 +110,38 @@ ion-icon {
 
 #dateBar {
     margin-top: 3.5em;
-    /* text-align: center; */
+    text-align: center;
     border-bottom: 1px solid #b2b2b2;
     color: #0084b4;
     display: flex;
     align-items: center;
-    
+    justify-content: center;
+    /* margin: 1em; */
 
 }
 
 #dateBar > ion-icon {
     font-size: 1.2em;
-    margin: 1em;
 }
 
 
 #datePicker {
-    margin-top: 10px;
+    /* margin-top: 10px; */
+    margin: 1em 0;
+    height: 100%;
     width: 45%;
     font-weight: 600;
     font-size: 0.8em;
     text-align: center;
-    /* border: none; */
     border: 5px solid #0084b4;
     border-radius: 1em;
     background-color: #0084b4;
     color: white;
     cursor: pointer;
+}
+
+#footer {
+    font-size: 0.5em;
+    padding: 2em 1em 1em 0;
+    text-align: right;
 }

@@ -13,13 +13,17 @@ $(document).ready(() => {
         for (var date = 1; date < days; date++) {
             var weekday = weekdays[new Date(year, month, date).getDay()];
             $("#list").append(`
-          <li>
-            <div class="date">${date}</div><div class="day">${weekday}</div><div class="time">09:00 ~ 18:00</div>
-          </li>
-        `);
-        }
-    }
-
+                <li>
+                    <div class="date">${date}</div>
+                    <div class="day ${weekday == "(土)" ? "sat" : weekday == "(日)" ? "sun" : ""}">${weekday}</div>
+                    <div class="time">09:00 ~ 18:00</div>
+                    <div class="checkbox"><ion-icon name="checkbox"></ion-icon></div>
+                    </li>
+                    `);
+                }
+            }
+            
+            // <div class="time">09:00 ~ 18:00</div>
 
     //initial schedule
     var today = new Date();
